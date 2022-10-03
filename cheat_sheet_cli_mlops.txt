@@ -1,0 +1,56 @@
+# always needed
+export WMLA_HOST=https://wmla-console-*****
+export PATH=$PATH:/userfs
+export SPACE_ID=*****
+
+# needed if you do not run from a Watson Studio environment
+export CPD_BASE_URL=https://*****
+export CPD_USERNAME=******
+export CPD_APIKEY=******
+
+# if your cluster is behind a firewall, make sure that your machine has access to it as the cli tool may hang trying to connect to the cluster
+
+###### step by step ######
+python cli_mlops.py prepare stage --path-model=**** --path-dependency=**** --path-yml=/userfs/deployment_metadata_cli_example.yml
+
+python cli_mlops.py deploy create --name test --model-asset-id **** --kernel-filename kernel.py --custom-arg CPD_USERNAME=**** --custom-arg CPD_API_KEY=******** --custom-arg VOLUME_DISPLAY_NAME=**** --custom-arg CPD_BASE_URL=https://****
+
+python cli_mlops.py monitor create --name ****
+
+python cli_mlops.py monitor status --name ****
+
+python cli_mlops.py deploy stop --name ****
+
+python cli_mlops.py deploy delete --name ****
+
+python cli_mlops.py monitor delete --name ****
+
+python cli_mlops.py config delete --name ****
+
+
+###### simplified ######
+python cli_mlops.py prepare stage --path-model=**** --path-dependency=**** --path-yml=/userfs/deployment_metadata_cli_example.yml -f
+
+python cli_mlops.py deploy create --name test --model-asset-id **** --kernel-filename kernel.py --custom-arg CPD_USERNAME=**** --custom-arg CPD_API_KEY=********** --custom-arg VOLUME_DISPLAY_NAME=**** --custom-arg CPD_BASE_URL=https://****
+
+python cli_mlops.py monitor create --name ****
+
+python cli_mlops.py monitor status --name ****
+
+python cli_mlops.py deploy stop --name ****
+
+python cli_mlops.py deploy delete --name **** --remove-monitor --remove-config
+
+
+###### others ######
+python cli_mlops.py monitor list
+python cli_mlops.py deploy list
+python cli_mlops.py config list
+python cli_mlops.py config list --detail True
+
+python cli_mlops.py config add --path-yml deployment_metadata_cli_example2.yml
+
+python cli_mlops.py config delete --model-asset-id ****
+python cli_mlops.py config delete --name ****
+
+python cli_mlops.py version

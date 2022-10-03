@@ -1,0 +1,32 @@
+deployment_id: null
+deployment_space_id: null
+model_asset: null
+model_name: null
+openscale_custom_metric_provider:
+    custom_metrics:
+      dir_gt: MyDatasets/model_eval/gt_images
+      dir_pred: MyDatasets/model_eval/model_images
+      most_recent: 1
+      thresholds:
+        metric1:
+          threshold:
+          - 10.0
+          - lower
+        metric2:
+          threshold:
+          - 40.0
+          - lower
+      volume_display_name: MyVolume
+openscale_subscription_id: null
+wmla_deployment:
+    dependency_filename: null
+    deployment_name: null
+    deployment_url: null
+    resource_configs:
+      enable_gpus: 'True'
+      memory_allocation: 10000
+      n_cpus: 8
+      n_min_kernels: 1
+      n_replicas: 1
+      task_execution_timeout: 120
+    volume_display_name: MyVolume

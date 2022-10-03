@@ -1,0 +1,4 @@
+click
+pyyaml
+ibm-watson-machine-learning >= 1.0.246
+cpd-sdk-plus @ https://github.com/IBM/CPD-SDK-Plus-Python/raw/main/dist/cpd_sdk_plus-1.1.zip
